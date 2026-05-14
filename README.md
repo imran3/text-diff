@@ -1,30 +1,67 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📝 Text-diff
 
-Currently, two official plugins are available:
+A minimal, high-performance side-by-side text comparison tool built with **React**, **Tailwind CSS**, and **TypeScript**. Designed to provide a GitHub-like code review experience for any text input.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+* **Side-by-Side Comparison:** Clear visual distinction between original and modified text.
+* **Word-Level Highlighting:** Intelligently highlights specific changes within lines, not just the lines themselves.
+* **Modern UI/UX:** Clean, minimal dashboard aesthetic with a focus on readability.
+* **Responsive Layout:** Edge-to-edge design with sensible horizontal padding and viewport-aware inputs.
+* **Developer Friendly:** Fully typed with TypeScript and enforced by a strict linting/formatting pipeline.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+* **Framework:** React (Vite)
+* **Styling:** Tailwind CSS
+* **Icons:** Lucide React
+* **Diff Engine:** `react-diff-viewer-continued`
+* **Quality Control:** ESLint 10, Prettier, Husky, and Lint-Staged.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+---
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 🛠️ Local Development
+
+### Prerequisites
+
+* **Node.js:** v20.12.0 or higher (Required for `styleText` support in dev tools)
+* **npm:** v9 or higher
+
+### Installation
+
+1.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+2.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+
+2.  **Build for production:**
+    ```bash
+    npm run build
+    ```
+
+---
+
+## 🧹 Quality Control
+
+This project uses a strict pre-commit pipeline to ensure code quality.
+
+* **Formatting:** Prettier runs automatically on save (if configured in VS Code) or via `npm run format`.
+* **Linting:** ESLint 10 is used to catch logic errors and enforce Tailwind class ordering.
+* **Git Hooks:** Husky will prevent commits if the linter finds errors or if formatting is inconsistent.
+
+### Manual Commands
+```bash
+# Format with prettier
+npm run fmt
+
+# Run the linter
+npm run lint
+
+# Automatically fix linting and formatting issues
+npm run lint:fix
